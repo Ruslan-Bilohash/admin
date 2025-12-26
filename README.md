@@ -1,0 +1,2 @@
+# admin
+administrator panel
