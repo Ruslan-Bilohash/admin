@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Принудительный HTTPS (можно убрать, если это уже есть в корневом .htaccess)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Не переписывать запросы к существующим файлам и папкам
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Перенаправлять всё на index.php в /admin/, но только если это не модули
+RewriteRule ^$ index.php [L]
