@@ -1,7 +1,6 @@
 <?php
+// /admin/logout.php — Выход из админки
 session_start();
-session_unset(); // Удаляем все переменные сессии
-session_destroy(); // Уничтожаем сессию
+session_destroy();
 header("Location: /admin/login.php");
 exit;
-?>
